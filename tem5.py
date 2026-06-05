@@ -12,5 +12,5 @@ def guardar_contacto():
     id_contacto, nombre, telefono = ingresar_contacto()
     
     with open(ARCHIVO, "a", encoding="utf-8") as archivo:
-        archivo.write(f"{id_contacto},{nombre},{telefono}\n")
+        archivo.write("\t".join([id_contacto, nombre, telefono]) + "\n")
     print("Contacto guardado correctamente.")

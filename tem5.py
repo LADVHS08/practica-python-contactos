@@ -1,1 +1,1 @@
-ARCHIVO="contador.txt"
+ARCHIVO="contactos.txt"

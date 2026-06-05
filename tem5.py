@@ -11,5 +11,5 @@ def ingresar_producto():
 def guardar_producto():
     nombre, stock, precio = ingresar_producto()
 
-    with open("inventario.txt", "a") as archivo:
+    with open("contactos.txt", "a") as archivo:
         archivo.write(f"{nombre},{stock},{precio}\n")

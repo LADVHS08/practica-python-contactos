@@ -2,10 +2,10 @@ ARCHIVO="contactos.txt"
 
 #Ingresar datos por teclado.
 def ingresar_contacto():
-    id = input("Ingrese ID: ")
-    nombre = int(input("Nombre: "))
-    telefono = float(input("Teléfono: "))
-    return id, nombre, telefono
+    id_contacto = input("Ingrese ID: ")
+    nombre = input("Nombre: ")
+    telefono = input("Teléfono: ")
+    return id_contacto, nombre, telefono
     
 # Añadir nuevos registros sin sobrescribir los anteriores
 def guardar_contacto():

@@ -1,30 +1,30 @@
 # Función para leer y procesar datos
 def procesar_datos():
-    # Leer datos
-    nombres = []
+    try:
+        contactos = []
+        with open(ARCHIVO, "r", encoding="utf-8") as archivo:
+            next(archivo)
+            for linea in archivo:
+                contactos.append(linea.strip().split("\t"))
 
-    cantidad = int(input("¿Cuántos nombres desea ingresar?: "))
+        # Búsqueda
+        buscar = input("Ingrese el nombre que desea buscar: ")
+        encontrado = False
+        for contacto in contactos:
+            if contacto[1].lower() == buscar.lower():
+                print("\nContacto encontrado:")
+                print(f"ID: {contacto[0]}")
+                print(f"Nombre: {contacto[1]}")
+                print(f"Teléfono: {contacto[2]}")
 
-    for i in range(cantidad):
-        nombre = input(f"Ingrese el nombre {i+1}: ")
-        nombres.append(nombre)
+                encontrado = True
+                break
 
-    # Mostrar lista completa
-    print("\nLista de nombres:")
-    for nombre in nombres:
-        print(nombre)
+        if not encontrado:
+            print("Contacto no encontrado.")
 
-    # Búsqueda
-    buscar = input("\nIngrese el nombre que desea buscar: ")
+        # Conteo
+        print(f"\nCantidad total de contactos: {len(contactos)}")
 
-    if buscar in nombres:
-        print(f"El nombre '{buscar}' sí se encuentra en la lista.")
-    else:
-        print(f"El nombre '{buscar}' no se encuentra en la lista.")
-
-    # Conteo
-    print(f"\nCantidad total de nombres ingresados: {len(nombres)}")
-
-
-# Llamar a la función
-procesar_datos()
+    except FileNotFoundError:
+        print("No existe el archivo.")

@@ -1,5 +1,25 @@
 ARCHIVO="contactos.txt"
+import pickle
 
+# Datos del contacto
+contacto = {
+    "nombre": "Jaime",
+    "telefono": "999888777"
+}
+
+# GUARDAR EN BINARIO
+with open("contactos.dat", "wb") as archivo:
+    pickle.dump(contacto, archivo)
+
+print("Datos guardados en binario")
+
+
+# LEER EL ARCHIVO BINARIO
+with open("contactos.dat", "rb") as archivo:
+    datos = pickle.load(archivo)
+
+print("Datos recuperados:")
+print(datos)
 #Ingresar datos por teclado.
 def ingresar_contacto():
     id_contacto = input("Ingrese ID: ")
